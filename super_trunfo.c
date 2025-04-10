@@ -5,6 +5,7 @@ int main() {                                               //Início do programa
     char Estado1, Cod1[4], Nome1[30];                     
     int Populacao1, Turisticos1;                       //Declaração das variáveis.
     float Area1, PIB1;
+    float Densidade1, Percapta1;                      // Densidade populacional e PIB Per Capta
 
     printf("Ola usuario! Seja Bem-Vindo ao jogo de cartas Super Trunfo!\n");        // Inicio da interação com o usuário e coleta dos dados da primeira carta.
    
@@ -36,14 +37,21 @@ int main() {                                               //Início do programa
     printf("Estado: %c\n", Estado1);
     printf("Codigo: %s\n", Cod1);
     printf("Nome da Cidade: %s\n", Nome1);
-    printf("Populaçao de: %d habitantes\n", Populacao1);
+    printf("Populacao de: %d habitantes\n", Populacao1);
     printf("Area de: %.2f quilometros quadrados\n", Area1);
     printf("PIB no valor de: %.2f reais\n", PIB1);
     printf("Possui %d pontos turisticos\n", Turisticos1);
 
+    Densidade1 = (float) Populacao1 / Area1;      //Densidade populacional
+    Percapta1 = (float) PIB1 / Populacao1;        //PIB Per Capta 
+    
+    printf("Densidade populacional: %.2f habitantes por quilometro quadrado.\n", Densidade1);
+    printf("PIB per Capta de: %.2f reais.\n", Percapta1);
+
     char Estado2, Cod2[4], Nome2[30];                //Início do cadastro da segunda carta.
     int Populacao2, Turisticos2;
     float Area2, PIB2;
+    float Densidade2, Percapta2;                     //Densidade populacional e PIB Per Capta
 
     printf("Agora faremos o cadastro da sua segunda carta do Super Trunfo!\n");         //Começo da interação com o usuário para o cadastro da segunda carta.
 
@@ -73,10 +81,16 @@ int main() {                                               //Início do programa
     printf("Estado: %c\n", Estado2);                            
     printf("Codigo: %s\n", Cod2);
     printf("Nome da Cidade: %s\n", Nome2);
-    printf("Populaçao de: %d habitantes\n", Populacao2);
+    printf("Populacao de: %d habitantes\n", Populacao2);
     printf("Area de: %.2f quilometros quadrados\n", Area2);
     printf("PIB no valor de: %.2f reais\n", PIB2);
     printf("Possui %d pontos turisticos\n", Turisticos2);
+
+    Densidade2 = Populacao2 / Area2;      //Densidade populacional
+    Percapta2 = PIB2 / Populacao2;        //PIB Per Capta
+
+    printf("Densidade populacional: %.2f habitantes por quilometro quadrado.\n", Densidade2);
+    printf("PIB per Capta de: %.2f reais.\n", Percapta2);
 
     printf("Parabens! Suas 2 cartas foram cadastradas com sucesso!\n");
 

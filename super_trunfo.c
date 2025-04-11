@@ -6,6 +6,8 @@ int main() {                                               //Início do programa
     int Populacao1, Turisticos1;                       //Declaração das variáveis.
     float Area1, PIB1;
     float Densidade1, Percapta1;                      // Densidade populacional e PIB Per Capta
+    float Inverso1;                                   // Inverso da Densidade Populacional
+    float SuperPoder1;                                // Super Poder 
 
     printf("Ola usuario! Seja Bem-Vindo ao jogo de cartas Super Trunfo!\n");        // Inicio da interação com o usuário e coleta dos dados da primeira carta.
    
@@ -48,10 +50,15 @@ int main() {                                               //Início do programa
     printf("Densidade populacional: %.2f habitantes por quilometro quadrado.\n", Densidade1);
     printf("PIB per Capta de: %.2f reais.\n", Percapta1);
 
+    Inverso1 = Area1 / Populacao1;                                                            //Cálculo do inverso da densidade populacional
+    SuperPoder1 = (float) Populacao1 + Area1 + PIB1 + Turisticos1 + Percapta1 + Inverso1;      //Cálculo do Super Poder
+
     char Estado2, Cod2[4], Nome2[30];                //Início do cadastro da segunda carta.
     int Populacao2, Turisticos2;
     float Area2, PIB2;
     float Densidade2, Percapta2;                     //Densidade populacional e PIB Per Capta
+    float Inverso2;                                  //Inverso da Densidade Populacional
+    float SuperPoder2;                               //Super Poder
 
     printf("Agora faremos o cadastro da sua segunda carta do Super Trunfo!\n");         //Começo da interação com o usuário para o cadastro da segunda carta.
 
@@ -92,7 +99,24 @@ int main() {                                               //Início do programa
     printf("Densidade populacional: %.2f habitantes por quilometro quadrado.\n", Densidade2);
     printf("PIB per Capta de: %.2f reais.\n", Percapta2);
 
+    Inverso2 = Area2 / Populacao2;                                                              //Cálculo do inverso da densidade populacional
+    SuperPoder2 = (float) Populacao2 + Area2 + PIB2 + Turisticos2 + Percapta2 + Inverso2;        //Cálculo do Super Poder  
+
     printf("Parabens! Suas 2 cartas foram cadastradas com sucesso!\n");
+    printf("Agora vamos para a batalha!\n");
+
+    printf("\n---Resultado---\n\n");
+    
+                                                                                  
+    printf("Populacao - Carta 1 venceu? (%d)\n", Populacao1 > Populacao2);            //Início das comparações
+    printf("Area - Carta 1 venceu? (%d)\n", Area1 > Area2);
+    printf("PIB - Carta 1 venceu? (%d)\n", PIB1 > PIB2);
+    printf("Pontos Turisticos - Carta 1 venceu? (%d)\n", Turisticos1 > Turisticos2);
+    printf("Densidade Populacional - Carta 1 venceu? (%d)\n", Inverso1 > Inverso2);   //Usar o inverso
+    printf("PIB per Capita - Carta 1 venceu? (%d)\n", Percapta1 > Percapta2);
+    printf("Super Poder - Carta 1 venceu? (%d)\n", SuperPoder1 > SuperPoder2);        //Fim das comparações
+
+    printf("Parabens ao vencedor e obrigado por jogar o Super Trunfo!\n");               //Mensagem final
 
     return 0;                                                    //Término do cadastro da segunda carta e do programa. :)
     

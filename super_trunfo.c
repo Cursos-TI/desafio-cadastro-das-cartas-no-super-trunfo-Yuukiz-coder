@@ -105,10 +105,21 @@ int main() {                                               //Início do programa
     printf("Parabens! Suas 2 cartas foram cadastradas com sucesso!\n");
     printf("Agora vamos para a batalha!\n");
 
+    //Comparação da população usando if else                                                                              
+                                                                                  //printf ("Populacao - Carta 1 venceu? (%d)\n", Populacao1 > Populacao2);    //Código anterior que estava na linha
+    printf("\nComparacao das populacoes:\n");
+    printf("Carta %s - %s: %d\n", Cod1, Nome1, Populacao1);                             //Dados das cartas para comparação
+    printf("Carta %s - %s: %d\n", Cod2, Nome2, Populacao2);
+
+    if (Populacao1 > Populacao2) {                                                    //Comparação usando if else                       
+        printf("A carta %s venceu!\n", Nome1);
+    } else {
+        if (Populacao1 < Populacao2)
+        printf("A carta %s venceu!\n", Nome2);
+        else 
+        printf("As cartas %s e %s empataram!\n", Nome1, Nome2);
+    }                                                                                //Fim do if e else
     printf("\n---Resultado---\n\n");
-    
-                                                                                  
-    printf("Populacao - Carta 1 venceu? (%d)\n", Populacao1 > Populacao2);            //Início das comparações
     printf("Area - Carta 1 venceu? (%d)\n", Area1 > Area2);
     printf("PIB - Carta 1 venceu? (%d)\n", PIB1 > PIB2);
     printf("Pontos Turisticos - Carta 1 venceu? (%d)\n", Turisticos1 > Turisticos2);

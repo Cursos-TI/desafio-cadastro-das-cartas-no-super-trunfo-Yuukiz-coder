@@ -105,93 +105,206 @@ int main() {                                               //Início do programa
 
     printf("Parabens! Suas 2 cartas foram cadastradas com sucesso!\n");
     printf("Agora vamos para a batalha!\n");
-    //Menu Interativo
-    printf("O jogador deve escolher qual atributo deseja comparar:\n\n");
+    //Variáveis que serão usadas nas comparações de 2 atributos
+    int escolha1, escolha2, resultado1, resultado2;
+    float soma1 = 0, soma2 = 0;
+    char *atributo1, *atributo2;
+
+    //Menu interativo de escolha do primeiro atributo 
+    printf("O jogador deve escolher 2 atributos que deseja comparar:\n\n");
+    printf("Escolha o primeiro:\n");
     printf("1. Populacao\n");
     printf("2. Area\n");
     printf("3. PIB\n");
     printf("4. Pontos Turisticos\n");
     printf("5. Densidade Demografica\n");
     printf("Selecione sua escolha: ");
-    scanf("%d", &escolha);
+    scanf("%d", &escolha1);
 
-    switch (escolha) {
-    case 1:
+    switch (escolha1) {
+        case 1:
     //Case População
-        printf("\n--- Comparacao: População ---\n");
-        printf("%s: %d habitantes\n", Nome1, Populacao1);
-        printf("%s: %d habitantes\n", Nome2, Populacao2);
-        if (Populacao1 > Populacao2) {
-            printf("A carta %s venceu!\n", Nome1);
-            printf("");
-        } else if (Populacao1 < Populacao2) {
-            printf("A carta %s venceu!\n", Nome2);
-        } else {
-            printf("Houve um empate\n");
-        }
+        printf("Voce escolheu o atributo Populacao!\n");
+        resultado1 = Populacao1 > Populacao2 ? 1 : 0;
+        atributo1 = "Populacao";
+        soma1 += Populacao1;
+        soma2 += Populacao2;
         break;
     case 2:
     //Case Área
-        printf("\n--- Comparacao: Area ---\n");
-        printf("%s: %.2f quilometros quadrados\n", Nome1, Area1);
-        printf("%s: %.2f quilometros quadrados\n", Nome2, Area2);
-        if (Area1 > Area2) {
-            printf("A carta %s venceu!\n", Nome1);
-        } else if (Area1 < Area2) {
-            printf("A carta %s venceu!\n", Nome2);
-        } else {
-            printf("Houve um empate\n");
-        }
+        printf("Voce escolheu o atributo Area!\n");
+        resultado1 = Area1 > Area2 ? 1 : 0;
+        atributo1 = "Area";
+        soma1 += Area1;
+        soma2 += Area2;
         break;
     case 3:
     //Case PIB
-        printf("\n--- Comparacao: PIB ---\n");
-        printf("%s: %.2f reais\n", Nome1, PIB1);
-        printf("%s: %.2f reais\n", Nome2, PIB2);
-        if (PIB1 > PIB2) {
-            printf("A carta %s venceu!\n", Nome1);
-        } else if (PIB1 < PIB2) {
-            printf("A carta %s venceu!\n", Nome2);
-        } else {
-            printf("Houve um empate\n");
-        }
+        printf("Voce escolheu o atributo PIB!\n");
+        resultado1 = PIB1 > PIB2 ? 1 : 0;
+        atributo1 = "PIB";
+        soma1 += PIB1;
+        soma2 += PIB2;
         break;
     case 4:
     //Case Pontos Turísticos
-        printf("\n--- Comparacao: Pontos Turisticos ---\n");
-        printf("%s: %d pontos turisticos\n", Nome1, Turisticos1);
-        printf("%s: %d pontos turisticos\n", Nome2, Turisticos2);
-        if (Turisticos1 > Turisticos2) {
-            printf("A carta %s venceu!\n", Nome1);
-        } else if (Turisticos1 < Turisticos2) {
-            printf("A carta %s venceu!\n", Nome2);
-        } else {
-            printf("Houve um empate\n");
-        }
-
+        printf("Voce escolheu o atributo Pontos Turisticos!\n");
+        resultado1 = Turisticos1 > Turisticos2 ? 1 : 0;
+        atributo1 = "Pontos Turisticos";
+        soma1 += Turisticos1;
+        soma2 += Turisticos2;
         break;
     case 5:
     //Case Densidade Demográfica
-        printf("\n--- Comparacao: Densidade Demografica ---\n");
-        printf("%s: %.2f habitantes por quilometro quadrado\n", Nome1, Densidade1);
-        printf("%s: %.2f habitantes por quilometro quadrado\n", Nome2, Densidade2);
-        if (Densidade1 < Densidade2) {
-            printf("A carta %s venceu!\n", Nome1);
-        } else if (Densidade1 > Densidade2) {
-            printf("A carta %s venceu!\n", Nome2);
-        } else {
-            printf("Houve um empate\n");
-        }
-
+        printf("Voce escolheu o atributo Densidade Demografica!\n");
+        resultado1 = Densidade1 < Densidade2 ? 1 : 0;
+        atributo1 = "Densidade Demografica";
+        soma1 += Densidade1;
+        soma2 += Densidade2;
         break;
     default:
     //Mensagem caso o usuário insira um número inválido
         printf("Selecione uma opcao valida.\n");
         return 0;
         break;
+    } 
+    
+    printf("Agora escolha o segundo atributo:\n");
+    printf("1. Populacao\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Demografica\n");
+    printf("Selecione sua escolha: ");
+    scanf("%d", &escolha2);
+
+    if (escolha1 == escolha2) { //
+        printf("Voce escolheu o mesmo atributo.\n");
+        return 0;
+    } else {
+        switch (escolha2) {
+        case 1:
+        //Case População
+            printf("Voce escolheu o atributo Populacao!\n");
+            resultado2 = Populacao1 > Populacao2 ? 1 : 0;
+            atributo2 = "Populacao";
+            soma1 += Populacao1; // += para somar e atribuir o resultado na variável soma
+            soma2 += Populacao2;
+            
+            break;
+        case 2:
+        //Case Área
+            printf("Voce escolheu o atributo Area!\n");
+            resultado2 = Area1 > Area2 ? 1 : 0;
+            atributo2 = "Area";
+            soma1 += Area1;
+            soma2 += Area2;
+            break;
+        case 3:
+        //Case PIB
+            printf("Voce escolheu o atributo PIB!\n");
+            resultado2 = PIB1 > PIB2 ? 1 : 0;
+            atributo2 = "PIB";
+            soma1 += PIB1;
+            soma2 += PIB2;
+            break;
+        case 4:
+        //Case Pontos Turísticos
+            printf("Voce escolheu o atributo Pontos Turisticos!\n");
+            resultado2 = Turisticos1 > Turisticos2 ? 1 : 0;
+            atributo2 = "Pontos Turisticos";
+            soma1 += Turisticos1;
+            soma2 += Turisticos2;
+            break;
+        case 5:
+        //Case Densidade Demográfica
+            printf("Voce escolheu o atributo Densidade Demografica!\n");
+            resultado2 = Densidade1 < Densidade2 ? 1 : 0;
+            atributo2 = "Densidade Demografica";
+            soma1 += Densidade1;
+            soma2 += Densidade2;
+            break;
+        default:
+        //Mensagem caso o usuário insira um número inválido
+            printf("Selecione uma opcao valida.\n");
+            return 0;
+            break;
+        } 
     }
+    //Resultados
+    printf("\n***RESULTADOS***\n\n");
+    //if de empate
+    if(resultado1 == 0 && resultado2 == 0) { //Foi necessário usar == 0 porque o empate estava dando vitória para a cidade 2
+        printf("Houve um empate na comparacao!\n"); 
+        printf("Foram usados os atributos %s e %s.\n", atributo1, atributo2);
+        if (soma1 > soma2) {
+            printf("%s venceu a soma!\n", Nome1);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else if (soma1 < soma2) {
+            printf("%s venceu a soma!\n", Nome2);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else { 
+            printf("Houve um empate na soma!\n");
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        }
+    //else if de vitória para jogador 1    
+    } else if (resultado1 && resultado2) {
+        printf("%s venceu a comparacao!\n", Nome1);
+        printf("Foram usados os atributos %s e %s.\n", atributo1, atributo2);
+        if (soma1 > soma2) {
+            printf("%s venceu a soma!\n", Nome1);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else if (soma1 < soma2) {
+            printf("%s venceu a soma!\n", Nome2);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else {
+            printf("Houve um empate na soma!\n");
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        }
+    //else if de empate usando !=
+    } else if (resultado1 != resultado2) { //Somente o != como teste de empate não estava conseguindo reconhecer o resultado caso os valores fossem iguais
+        printf("Houve um empate na comparacao!\n"); 
+        printf("Foram usados os atributos %s e %s.\n", atributo1, atributo2);
+        if (soma1 > soma2) {
+            printf("%s venceu a soma!\n", Nome1);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else if (soma1 < soma2) {
+            printf("%s venceu a soma!\n", Nome2);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else {
+            printf("Houve um empate na soma!\n");
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        }
+    //else de vitória para o jogador 2
+    } else {
+        printf("%s venceu a comparacao!\n", Nome2);
+        printf("Foram usados os atributos %s e %s.\n", atributo1, atributo2);
+        if (soma1 > soma2) {
+            printf("%s venceu a soma!\n", Nome1);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else if (soma1 < soma2) {
+            printf("%s venceu a soma!\n", Nome2);
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        } else {
+            printf("Houve um empate na soma!\n");
+            printf("Valores da soma:\n");
+            printf("%s: %.2f - %s: %.2f\n", Nome1, soma1, Nome2, soma2);
+        }
+    }
+    
     printf("Obrigado por jogar o Super Trunfo!\n");               //Mensagem final
 
-    return 0;                                                    //Término do cadastro da segunda carta e do programa. :)
+    return 0;                                                    //Término do programa. :)
     
 }
